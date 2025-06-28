@@ -1,4 +1,8 @@
 #include "pb.h"
+#include <cstddef>
+#include <iostream>
+#include <string>
+
 
 void	putheader()
 {
@@ -10,6 +14,8 @@ void	putheader()
 
 std::string	putenchar(std::string str)
 {
+	int	i;
+
 	if (str[9])
 	{
 		str[9] = '.';
@@ -18,10 +24,27 @@ std::string	putenchar(std::string str)
 	return str;
 }
 
+std::string	padding(std::string const &str, size_t s) {
+	size_t	pad;
+	size_t	isodd;
+
+	isodd =0 ;
+	if (str.length() % 2 != 0)
+		isodd = 1;
+	pad = (s - str.length())/2 ;
+	if (str.size() < s)
+		return std::string(pad, ' ') + str + std::string(pad + isodd, ' ');
+	else
+		return str;
+}
+
 void	putcontact(Contact contact, std::string index)
 {
-	std::cout << "_____________________________________________" << std::endl;
-	std::cout << "|"<< index <<"|"<< putenchar(contact.first_name) <<"|"<< putenchar(contact.last_name) << "|" << putenchar(contact.nickname) << "|" << std::endl;
+	std::cout << "|" << padding(index, 10);
+	std::cout << "|" << padding(putenchar(contact.first_name), 10) ;
+	std::cout << "|" << padding(putenchar(contact.last_name), 10) ;
+	std::cout << "|" << padding(putenchar(contact.nickname), 10) ;
+	std::cout << "|" << std::endl;
 	std::cout << "_____________________________________________" << std::endl;
 
 }
@@ -29,12 +52,9 @@ void	putcontact(Contact contact, std::string index)
 void	PhoneBook::search()
 {
 	putheader();
-	putcontact(phonebook[0], "0");
-	putcontact(phonebook[1], "1");
-	putcontact(phonebook[2], "2");
-	putcontact(phonebook[3], "3");
-	putcontact(phonebook[4], "4");
-	putcontact(phonebook[5], "5");
-	putcontact(phonebook[6], "6");
-	putcontact(phonebook[7], "7");
+	for (int i = 0; i < 8; i++)
+	{
+		if (phonebook[i].first_name[0])
+			putcontact(phonebook[i], std::to_string(i));
+	}
 }

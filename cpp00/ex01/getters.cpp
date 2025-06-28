@@ -9,10 +9,13 @@ std::string	getname(int name)
 	switch (name) {
 		case 1:
 			std::cout << "enter the first name: ";
+			break ;
 		case 2:
 			std::cout << "enter the last name: ";
+			break ;
 		case 3:
 			std::cout << "enter the nickname: ";
+			break ;
 	}
 	std::getline(std::cin, str);
 	i = 0;

@@ -1,6 +1,4 @@
-#include "classes.h"
 #include "pb.h"
-#include <iostream>
 
 void	PhoneBook::add()
 {
@@ -19,7 +17,7 @@ void	PhoneBook::add()
 
 void	PhoneBook::exit()
 {
-	std::cout << "exit the contact done." << std::endl;
+	std::cout << "exit the phonebook done." << std::endl;
 	std::exit(0);
 }
 
@@ -28,13 +26,16 @@ int main ()
 	std::string	cmd;
 	PhoneBook	pb;
 
-	std::cout << "enter a command :" ;
-	std::getline(std::cin, cmd);
-	if (cmd == "ADD")
-		pb.add();
-	else if (cmd == "SEARCH")
-		pb.search();
-	else if (cmd == "EXIT")
-		pb.exit();
+	while (1)
+	{
+		std::cout << "enter a command :" ;
+		std::getline(std::cin, cmd);
+		if (cmd == "ADD")
+			pb.add();
+		else if (cmd == "SEARCH")
+			pb.search();
+		else if (cmd == "EXIT")
+			pb.exit();
+	}
 	return 0;
 }
