@@ -1,11 +1,11 @@
-SRC = megaphone.cpp
+SRC = phonebook.cpp search.cpp getters.cpp
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g 
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
 OBJ = $(SRC:.cpp=.o)
 
 RM = rm -f
 
-NAME = megaphone
+NAME = phonebook
 
 all : $(NAME)
 
