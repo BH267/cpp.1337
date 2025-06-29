@@ -4,6 +4,7 @@
 #include <iostream>
 #include <ostream>
 #include <string>
+#include <cstddef>
 #include "classes.h"
 
 #define FIRST 1

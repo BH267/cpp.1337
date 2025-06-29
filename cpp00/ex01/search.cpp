@@ -1,8 +1,4 @@
 #include "pb.h"
-#include <cstddef>
-#include <iostream>
-#include <ostream>
-#include <string>
 
 
 void	putheader()
@@ -17,10 +13,10 @@ std::string	putenchar(std::string str)
 {
 	int	i;
 
-	if (str[9])
+	if (str[10])
 	{
-		str[9] = '.';
-		str[10] = '\0';
+		str.erase(str.begin() + 10, str.end());
+		str.replace(str.end() -1 , str.end(), 1, '.');
 	}
 	return str;
 }
