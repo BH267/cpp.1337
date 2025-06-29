@@ -6,9 +6,9 @@
 
 void	putheader()
 {
-	std::cout << "_____________________________________________" << std::endl;
-	std::cout << "|  index   |first name| last name| nickname |" << std::endl;
-	std::cout << "_____________________________________________" << std::endl;
+	std::cout << "╭──────────┬──────────┬──────────┬──────────╮" << std::endl;
+	std::cout << "│  index   │first name│ last name│ nickname │" << std::endl;
+	std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
 
 }
 
@@ -40,13 +40,11 @@ std::string	padding(std::string const &str, size_t s) {
 
 void	putcontact(Contact contact, std::string index)
 {
-	std::cout << "|" << padding(index, 10);
-	std::cout << "|" << padding(putenchar(contact.first_name), 10) ;
-	std::cout << "|" << padding(putenchar(contact.last_name), 10) ;
-	std::cout << "|" << padding(putenchar(contact.nickname), 10) ;
-	std::cout << "|" << std::endl;
-	std::cout << "_____________________________________________" << std::endl;
-
+	std::cout << "│" << padding(index, 10);
+	std::cout << "│" << padding(putenchar(contact.first_name), 10) ;
+	std::cout << "│" << padding(putenchar(contact.last_name), 10) ;
+	std::cout << "│" << padding(putenchar(contact.nickname), 10) ;
+	std::cout << "│" << std::endl;
 }
 
 void	PhoneBook::search()
@@ -55,6 +53,11 @@ void	PhoneBook::search()
 	for (int i = 0; i < 8; i++)
 	{
 		if (phonebook[i].first_name[0])
+		{
 			putcontact(phonebook[i], std::to_string(i));
+		if (phonebook[i + 1].first_name[0] && i != 7)
+			std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
+		else
+			std::cout << "╰──────────┴──────────┴──────────┴──────────╯" << std::endl;}
 	}
 }

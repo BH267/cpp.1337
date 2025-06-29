@@ -9,8 +9,7 @@ void	PhoneBook::add()
 	contact.last_name = getname(LAST);
 	contact.nickname = getname(NICKNAME);
 	contact.phone_number = getnumber();
-	std::cout << "enter the darkest secret:";
-	std::getline(std::cin, contact.secret);
+	contact.secret = getname(SECRET);
 	contact.index = i++;
 	phonebook[contact.index % 8] = contact ;
 }
@@ -28,7 +27,7 @@ int main ()
 
 	while (1)
 	{
-		std::cout << "enter a command :" ;
+		std::cout << "\033[38;2;0;255;255menter a command: \033[0m" ;
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
 			pb.add();
