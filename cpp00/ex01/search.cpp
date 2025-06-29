@@ -1,6 +1,7 @@
 #include "pb.h"
 #include <cstddef>
 #include <iostream>
+#include <ostream>
 #include <string>
 
 
@@ -49,7 +50,10 @@ void	putcontact(Contact contact, std::string index)
 
 void	PhoneBook::search()
 {
-	putheader();
+	if (phonebook[0].first_name[0])
+		putheader();
+	else
+		std::cout << "	nothing to show.. go add some contacts" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		if (phonebook[i].first_name[0])
