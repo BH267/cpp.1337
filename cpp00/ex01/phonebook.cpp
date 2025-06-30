@@ -1,4 +1,5 @@
 #include "pb.h"
+#include <iostream>
 
 void	PhoneBook::add()
 {
@@ -28,13 +29,20 @@ int main ()
 	while (1)
 	{
 		std::cout << "\033[38;2;0;255;255menter a command: \033[0m" ;
-		std::getline(std::cin, cmd);
-		if (cmd == "ADD")
-			pb.add();
-		else if (cmd == "SEARCH")
-			pb.search();
-		else if (cmd == "EXIT")
-			pb.exit();
+		if (std::getline(std::cin, cmd))
+		{
+			if (cmd == "ADD")
+				pb.add();
+			else if (cmd == "SEARCH")
+				pb.search();
+			else if (cmd == "EXIT")
+				pb.exit();
+		}
+		else 
+		{
+			std::cout << "\nEOF detected.\n exit." << std::endl;
+			return (1);
+		}
 	}
 	return 0;
 }

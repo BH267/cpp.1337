@@ -4,7 +4,6 @@
 std::string	getname(int name)
 {
 	std::string	str;
-	int	i;
 
 	switch (name) {
 		case 1:
@@ -20,21 +19,24 @@ std::string	getname(int name)
 			std::cout << "	enter the darkest secret: ";
 			break ;
 	}
-	std::getline(std::cin, str);
-	if (str[0] == '\0')
+	if (std::getline(std::cin, str))
 	{
-			std::cout << "		no empty field ..try again " << std::endl;
-			return (getname(name));
-	}
-	i = 0;
-	while (str[i])
-	{
-		if (!isalpha(str[i]))
+		if (str.empty())
 		{
-			std::cout << "		this is not a string ..try again " << std::endl;
-			return (getname(name));
+				std::cout << "		no empty field ..try again " << std::endl;
+				return (getname(name));
 		}
-		i++;
+		for (int i = 0; str[i]; i++)
+			if (!isalpha(str[i]))
+			{
+				std::cout << "		this is not a string ..try again " << std::endl;
+				return (getname(name));
+			}
+	}
+	else
+	{
+		std::cout << "\nEOF detected.\n exit." << std::endl;
+		exit(1);
 	}
 	return (str);
 }
@@ -45,18 +47,25 @@ size_t	getnumber(void)
 	size_t		num;
 
 	std::cout << "	enter the phone number: ";
-	std::getline(std::cin, str);
-	if (str[0] == '\0')
+	if (std::getline(std::cin, str))
 	{
-			std::cout << "		this is not a phone number ..try again " << std::endl;
-			return (getnumber());
-	}
-	for (int i = 0; str[i]; i++)
-		if (!std::isdigit(str[i]))
+		if (str.empty())
 		{
-			std::cout << "		this is not a phone number ..try again " << std::endl;
-			return (getnumber());
+				std::cout << "		this is not a phone number ..try again " << std::endl;
+				return (getnumber());
 		}
+		for (int i = 0; str[i]; i++)
+			if (!std::isdigit(str[i]))
+			{
+				std::cout << "		this is not a phone number ..try again " << std::endl;
+				return (getnumber());
+			}
+	}
+	else
+	{
+		std::cout << "\nEOF detected.\n exit." << std::endl;
+		exit(1);
+	}
 	num = std::stoul(str);
 	return (num);
 }
