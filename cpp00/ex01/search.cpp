@@ -13,10 +13,10 @@ std::string	putenchar(std::string str)
 {
 	int	i;
 
-	if (str[10])
+	if (str.length() > 10)
 	{
-		str.erase(str.begin() + 10, str.end());
-		str.replace(str.end() -1 , str.end(), 1, '.');
+		str.erase(str.begin() + 9, str.end());
+		str.insert(str.end(), 1, '.');
 	}
 	return str;
 }

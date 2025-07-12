@@ -1,5 +1,5 @@
 SRC = phonebook.cpp search.cpp getters.cpp
-CC = c++
+CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 OBJ = $(SRC:.cpp=.o)
 
@@ -10,10 +10,10 @@ NAME = phonebook
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o : %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJ) 
