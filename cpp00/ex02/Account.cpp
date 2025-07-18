@@ -1,4 +1,6 @@
 #include "Account.hpp"
+#include <iomanip>
+#include <iostream>
 
 int	Account::getNbAccounts(void)
 {
@@ -22,6 +24,7 @@ int	Account::getNbWithdrawals(void)
 
 void	Account::displayAccountsInfos(void)
 {
+
 }
 
 void	Account::makeDeposit(int deposit)
@@ -33,3 +36,17 @@ bool	Account::makeWithdrawal(int Withdrawal)
 	return (true);
 }
 
+int	Account::checkAmount(void) const
+{
+	return (_amount);
+}
+
+void	Account::displayStatus( void ) const
+{
+	std::cout << "" ;
+}
+
+void Account::_displayTimestamp(void)
+{
+	std::cout << '[' << std::get_time << ']';
+}
