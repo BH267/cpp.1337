@@ -17,7 +17,7 @@ void	PhoneBook::add()
 
 void	PhoneBook::exit()
 {
-	std::cout << "exit the phonebook done." << std::endl;
+	std::cout << "exit the phonebook..\ndone." << std::endl;
 	std::exit(0);
 }
 
