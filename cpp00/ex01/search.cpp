@@ -28,13 +28,19 @@ std::string	putenchar(std::string str)
 std::string	padding(std::string const &str, size_t s, int mode) {
 	size_t	pad;
 	size_t	isodd;
+	size_t	sol;
 
-	isodd =0 ;
+	isodd = 0;
+	sol = 0;
+	if (s % 2 == 0 && str.length() % 2 != 0 && mode)
+		sol = 1;
+	if (s % 2 != 0 && str.length() % 2 == 0 && mode)
+		sol = 1;
 	if (str.length() % 2 != 0 && mode == 0)
 		isodd = 1;
 	pad = (s - str.length())/2 ;
 	if (str.size() < s)
-		return std::string(pad, ' ') + str + std::string(pad + isodd, ' ');
+		return std::string(pad, ' ') + str + std::string(pad + isodd + sol, ' ');
 	else
 		return str;
 }
