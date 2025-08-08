@@ -1,11 +1,11 @@
-SRC = megaphone.cpp
+SRC = Account.cpp tests.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SRC:.cpp=.o)
 
 RM = rm -f
 
-NAME = megaphone
+NAME = accounts
 
 all : $(NAME)
 
