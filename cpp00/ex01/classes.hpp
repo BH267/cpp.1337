@@ -1,5 +1,4 @@
-#ifndef	CLASSES_H
-# define CLASSES_H
+#pragma once
 
 #include <iostream>
 
@@ -8,7 +7,7 @@ class	Contact {
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
-		long		phone_number;
+		std::string	phone_number;
 		std::string	secret;
 		int		index;
 };
@@ -23,6 +22,3 @@ class	PhoneBook
 		void	exit();
 
 };
-
-
-#endif

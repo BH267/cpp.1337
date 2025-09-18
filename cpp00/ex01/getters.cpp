@@ -1,5 +1,6 @@
-#include "pb.h"
+#include "pb.hpp"
 #include <iostream>
+#include <string>
 
 std::string	getname(int name)
 {
@@ -41,7 +42,7 @@ std::string	getname(int name)
 	return (str);
 }
 
-size_t	getnumber(void)
+std::string	getnumber(void)
 {
 	std::string	str;
 	size_t		num;
@@ -66,6 +67,5 @@ size_t	getnumber(void)
 		std::cout << "\nEOF detected.\n exit." << std::endl;
 		exit(1);
 	}
-	num = std::stoul(str);
-	return (num);
+	return (str);
 }

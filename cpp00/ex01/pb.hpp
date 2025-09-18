@@ -1,12 +1,11 @@
-#ifndef PB_H
-# define PB_H
+#pragma once
 
 #include <iostream>
 #include <ostream>
 #include <string>
 #include <cstddef>
 #include <limits>
-#include "classes.h"
+#include "classes.hpp"
 
 #define FIRST 1
 #define LAST 2
@@ -14,7 +13,5 @@
 #define SECRET 4
 
 std::string	getname(int name);
-size_t		getnumber(void);
+std::string	getnumber(void);
 void		search();
-
-# endif

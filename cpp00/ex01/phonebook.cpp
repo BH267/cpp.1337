@@ -1,4 +1,4 @@
-#include "pb.h"
+#include "pb.hpp"
 #include <iostream>
 
 void	PhoneBook::add()
