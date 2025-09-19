@@ -9,7 +9,6 @@ private:
 	static const int nfb = 8;
 public:
 	Fixed();
-	Fixed(int);
 	Fixed(const Fixed &);
 	//Fixed &operator=(Fixed &&) = default;
 	Fixed &operator=(const Fixed &);

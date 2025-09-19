@@ -13,12 +13,6 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(int i)
-{
-	std::cout << "Default constructor called" << std::endl;
-	setRawBits(i);
-}
-
 Fixed::Fixed(const Fixed &fx)
 {
 	std::cout << "Copy constructor called" << std::endl;
