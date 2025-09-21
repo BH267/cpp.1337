@@ -1,5 +1,5 @@
 SRC = Account.cpp tests.cpp
-CC = c++
+CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SRC:.cpp=.o)
 
@@ -10,10 +10,10 @@ NAME = accounts
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o : %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o : %.cpp
+	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	$(RM) $(OBJ) 

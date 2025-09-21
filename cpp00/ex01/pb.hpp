@@ -5,6 +5,8 @@
 #include <string>
 #include <cstddef>
 #include <limits>
+#include <cstdlib>
+#include <sstream>
 #include "classes.hpp"
 
 #define FIRST 1

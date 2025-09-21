@@ -1,5 +1,5 @@
-#include "classes.h"
-#include "pb.h"
+#include "classes.hpp"
+#include "pb.hpp"
 #include <iostream>
 #include <ostream>
 #include <string>
@@ -15,8 +15,6 @@ void	putheader()
 
 std::string	putenchar(std::string str)
 {
-	int	i;
-
 	if (str.length() > 10)
 	{
 		str.erase(str.begin() + 9, str.end());
@@ -56,7 +54,7 @@ void	putphonebook(Contact contact, std::string index)
 
 int	getbiglen(Contact contact)
 {
-	int	blen = 0;
+	size_t	blen = 0;
 
 	if (blen < contact.first_name.length())
 		blen = contact.first_name.length();
@@ -66,8 +64,8 @@ int	getbiglen(Contact contact)
 		blen = contact.nickname.length();
 	if (blen < contact.secret.length())
 		blen = contact.secret.length();
-	if (blen < std::to_string(contact.phone_number).length())
-		blen = std::to_string(contact.phone_number).length();
+	if (blen < contact.phone_number.length())
+		blen = contact.phone_number.length();
 	return (blen);
 }
 
@@ -101,7 +99,7 @@ void	putcontact(Contact contact)
 	border(biglength, 2);
 	std::cout << "│"<< padding("nickname", 14, 0) <<  "│" << padding(contact.nickname, biglength, 1) << "│" << std::endl;
 	border(biglength, 2);
-	std::cout << "│"<< padding("phone number", 14, 0) <<  "│" << padding(std::to_string(contact.phone_number), biglength, 1) << "│" << std::endl;
+	std::cout << "│"<< padding("phone number", 14, 0) <<  "│" << padding(contact.phone_number, biglength, 1) << "│" << std::endl;
 	border(biglength, 2);
 	std::cout << "│"<< padding("darkest secret", 14, 0) <<  "│" << padding(contact.secret, biglength, 1) << "│" << std::endl;
 	border(biglength, 3);
@@ -110,6 +108,9 @@ void	putcontact(Contact contact)
 void	PhoneBook::search()
 {
 	std::string	cont;
+	std::string	stri;
+	std::stringstream ss;
+
 
 	if (phonebook[0].first_name[0])
 		putheader();
@@ -119,7 +120,9 @@ void	PhoneBook::search()
 	{
 		if (phonebook[i].first_name[0])
 		{
-			putphonebook(phonebook[i], std::to_string(i));
+			ss << i;
+			stri = ss.str();
+			putphonebook(phonebook[i], stri);
 			if (phonebook[i + 1].first_name[0] && i != 7)
 				std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
 			else
@@ -128,8 +131,8 @@ void	PhoneBook::search()
 	}
 	std::cout << "which index do you want: ";
 	if (std::getline(std::cin, cont)){
-		if (0 <= std::stoi(cont) && std::stoi(cont) < 8 && phonebook[std::stoi(cont)].first_name[0])
-			putcontact(phonebook[std::stoi(cont)]);
+		if (0 <= atoi(cont.c_str()) && atoi(cont.c_str()) < 8 && phonebook[atoi(cont.c_str())].first_name[0])
+			putcontact(phonebook[atoi(cont.c_str())]);
 		else
 			std::cout << "no contact with this index" << std::endl;
 	}else {

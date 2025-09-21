@@ -45,7 +45,6 @@ std::string	getname(int name)
 std::string	getnumber(void)
 {
 	std::string	str;
-	size_t		num;
 
 	std::cout << "	enter the phone number: ";
 	if (std::getline(std::cin, str))
