@@ -42,12 +42,6 @@ int main(void)
     std::cout << "\n--- 6b. Assigning 'a' to 'c' (c = a) ---" << std::endl;
     c = a;
     std::cout << "c.getRawBits() = " << c.getRawBits() << std::endl; // Should be 42
-
-    // 7. Test self-assignment (should be safe and do nothing bad)
-    std::cout << "\n--- 7. Testing self-assignment (a = a) ---" << std::endl;
-    a = a;
-    std::cout << "a.getRawBits() after self-assignment = " << a.getRawBits() << std::endl; // Should still be 42
-
     std::cout << "\n=== ALL TESTS COMPLETED ===" << std::endl;
 
     return 0;

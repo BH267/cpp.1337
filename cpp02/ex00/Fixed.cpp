@@ -22,13 +22,13 @@ Fixed::Fixed(const Fixed &fx)
 int	Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (fpn / 256);
+	return (fpn);
 }
 
 void	Fixed::setRawBits( int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
-	fpn = raw * 256;
+	fpn = raw;
 }
 
 Fixed &Fixed::operator=(const Fixed &fx)
