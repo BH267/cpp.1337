@@ -1,17 +1,12 @@
 #pragma once
 
 
-//  the included liberaries 
-//
 #include <string>
 #include <iostream>
 
 
-//  the classes 
-//
 class Zombie
 {
-	private:
 		std::string	name;
 	public:
 		Zombie();
@@ -22,8 +17,5 @@ class Zombie
 		void		announce(void);
 		void		set_name(std::string n);
 };
-
-//  the functions 
-//
 Zombie*		newZombie(std::string name);
 void		randomChump(std::string name);
