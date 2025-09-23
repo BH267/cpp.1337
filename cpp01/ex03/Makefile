@@ -1,4 +1,4 @@
-SRC = main.cpp 
+SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SRC:.cpp=.o)
@@ -12,7 +12,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o : %.c 
+%.o : %.cpp
 	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :

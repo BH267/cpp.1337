@@ -4,12 +4,12 @@
 #include <string>
 
 class HumanB {
-public:
-	Weapon		weapon;
+	Weapon*		weapon;
 	std::string	name;
-
-	HumanB();
+public:
+	HumanB(std::string);
 	~HumanB();
 	
 	void	attack(void);
+	void	setWeapon(Weapon&);
 };

@@ -4,12 +4,11 @@
 #include <string>
 
 class HumanA {
-public:
-	Weapon		weapon;
+	Weapon&		weapon;
 	std::string	name;
+public:
 
-	HumanA(Weapon w);
-	~HumanA();
+	HumanA(std::string, Weapon&);
 	
 	void	attack(void);
 };
