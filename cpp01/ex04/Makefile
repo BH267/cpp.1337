@@ -17,6 +17,7 @@ $(NAME) : $(OBJ)
 
 clean :
 	$(RM) $(OBJ) 
+	$(RM) *.replace
 
 fclean : clean
 	$(RM) $(NAME)

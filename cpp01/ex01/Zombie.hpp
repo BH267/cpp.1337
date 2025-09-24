@@ -1,17 +1,12 @@
 #pragma once
 
 
-//  the included liberaries 
-//
 #include <string>
 #include <iostream>
 
 
-//  the classes 
-//
 class Zombie
 {
-	private:
 		std::string	name;
 	public:
 		Zombie();
@@ -23,6 +18,4 @@ class Zombie
 		void		set_name(std::string n);
 };
 
-//  the functions 
-//
 Zombie* zombieHorde( int N, std::string name );

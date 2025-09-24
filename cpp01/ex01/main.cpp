@@ -2,7 +2,7 @@
 
 int main(void) {
     int N = 5;
-    Zombie* horde = zombieHorde(N, "Zombie");
+    Zombie* horde = zombieHorde(N, "lhbil");
 
     // Test each zombie in the horde
     for (int i = 0; i < N; ++i) {

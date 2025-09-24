@@ -3,19 +3,16 @@
 #include <ostream>
 #include <string>
 
-int	main(int ac, char **av)
+int	replace(std::string file, std::string s1, std::string s2)
 {
-	if (ac != 4)
-	{
-		std::cout << "./sifl <filename> <s1> <s2>\n";
-		return 1; 
-	}
-	std::string	file = std::string(av[1]);
-	std::string	s1 = av[2];
-	std::string	s2 = av[3];
 	std::string	line;
 
 	std::ifstream	infile(file.c_str());
+	if (!infile.is_open())
+	{
+		std::cout << "the file did not opened\n";
+		return 1;
+	}
 	std::ofstream	outfile(file.append(".replace").c_str(), std::ios::app);
 	while (std::getline(infile, line))
 	{
@@ -36,4 +33,20 @@ int	main(int ac, char **av)
 	}
 	infile.close();
 	outfile.close();
+	return 0;
+}
+
+int	main(int ac, char **av)
+{
+	if (ac != 4)
+	{
+		std::cout << "./sifl <filename> <s1> <s2>\n";
+		return 1; 
+	}
+	std::string	file = std::string(av[1]);
+	std::string	s1 = av[2];
+	std::string	s2 = av[3];
+
+	if (replace(file, s1, s2))
+		return 1;
 }
