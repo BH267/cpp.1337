@@ -8,12 +8,12 @@ int	replace(std::string file, std::string s1, std::string s2)
 	std::string	line;
 
 	std::ifstream	infile(file.c_str());
-	if (!infile.is_open())
+	if (!infile.is_open() || infile.peek() == -1)
 	{
-		std::cout << "the file did not opened\n";
+		std::cout << "the file did not opened or empty\n";
 		return 1;
 	}
-	std::ofstream	outfile(file.append(".replace").c_str(), std::ios::app);
+	std::ofstream	outfile(file.append(".replace").c_str());
 	while (std::getline(infile, line))
 	{
 		for(int	i = 0; line[i]; i++)
