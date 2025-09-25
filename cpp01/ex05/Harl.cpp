@@ -26,26 +26,16 @@ void	Harl::complain(std::string lvl)
 {
 	int	i;
 	std::string lvls[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Harl::*f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	for (i = 0; i < 4 ; i++)
 	{
 		if (lvls[i] == lvl)
-			break;
+		{
+			(this->*f[i])();
+			return;
+		}
+			
 	}
-	switch (i) {
-		case 0:
-			debug();
-			break;
-		case 1:
-			info();
-			break;
-		case 2:
-			warning();
-			break;
-		case 3:
-			error();
-			break;
-		default:
-			std::cout << "invalid level \n";
-	}
+	std::cout << "invalid level \n";
 }
