@@ -98,28 +98,86 @@ bool	Fixed::operator!=(const Fixed &fx) const
 
 // the arithmetic operators
 
-int	Fixed::operator+(const Fixed &fx) const
+Fixed	Fixed::operator+(const Fixed &fx) const
 {
-	return (this->fpn + fx.fpn);
+	Fixed	result;
+	result.setRawBits(this->fpn + fx.fpn);
+	return result;
 }
 
-int	Fixed::operator-(const Fixed &fx) const
+Fixed	Fixed::operator-(const Fixed &fx) const
 {
-	return (this->fpn - fx.fpn);
+	Fixed	result;
+	result.setRawBits(this->fpn - fx.fpn);
+	return result;
 }
 
-int	Fixed::operator*(const Fixed &fx) const
+Fixed	Fixed::operator*(const Fixed &fx) const
 {
-	return (this->fpn * fx.fpn);
+	Fixed	result;
+	result.setRawBits((this->fpn * fx.fpn) >> nfb);
+	return result;
 }
 
-int	Fixed::operator/(const Fixed &fx) const
+Fixed	Fixed::operator/(const Fixed &fx) const
 {
-	return (this->fpn / fx.fpn);
+	Fixed	result;
+	result.setRawBits((this->fpn << nfb) / fx.fpn);
+	return result;
 }
 
 // the inc/dec operators 
 
-int	Fixed::operator++()
+Fixed&	Fixed::operator++(void)
 {
+	this->fpn += 1;
+	return *this;
+}
+
+Fixed&	Fixed::operator--(void)
+{
+	this->fpn -= 1;
+	return *this;
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	tmp(*this);
+	this->fpn += 1;
+	return tmp;
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	tmp(*this);
+	this->fpn -= 1;
+	return tmp;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	if (a > b)
+		return a;
+	return b;
 }

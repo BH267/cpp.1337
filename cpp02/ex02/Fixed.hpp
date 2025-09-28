@@ -26,14 +26,21 @@ public:
 	bool operator==(const Fixed &) const;
 	bool operator!=(const Fixed &) const;
 
-	int operator+(const Fixed &) const;
-	int operator-(const Fixed &) const;
-	int operator*(const Fixed &) const;
-	int operator/(const Fixed &) const;
+	Fixed operator+(const Fixed &) const;
+	Fixed operator-(const Fixed &) const;
+	Fixed operator*(const Fixed &) const;
+	Fixed operator/(const Fixed &) const;
 
-	void operator++(void);
-	void operator--(void);
+	Fixed& operator++(void);
+	Fixed operator++(int);
+	Fixed& operator--(void);
+	Fixed operator--(int);
 	
+	static Fixed& min(Fixed&, Fixed&);
+	static Fixed& max(Fixed&, Fixed&);
+	static const Fixed& min(const Fixed&, const Fixed&);
+	static const Fixed& max(const Fixed&, const Fixed&);
+
 	~Fixed();
 };
 std::ostream& operator<<(std::ostream&, const Fixed &);
