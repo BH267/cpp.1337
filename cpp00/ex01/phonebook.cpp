@@ -1,4 +1,5 @@
 #include "pb.hpp"
+#include <cctype>
 #include <iostream>
 
 void	PhoneBook::add()
@@ -18,7 +19,6 @@ void	PhoneBook::add()
 void	PhoneBook::exit()
 {
 	std::cout << "exit the phonebook..\ndone." << std::endl;
-	std::exit(0);
 }
 
 int main ()
@@ -31,12 +31,17 @@ int main ()
 		std::cout << "\033[38;2;0;255;255menter a command: \033[0m" ;
 		if (std::getline(std::cin, cmd))
 		{
+			for (size_t i = 0; i < cmd.length(); i++)
+				cmd[i] = (char)std::toupper(cmd[i]);
 			if (cmd == "ADD")
 				pb.add();
 			else if (cmd == "SEARCH")
 				pb.search();
 			else if (cmd == "EXIT")
+			{
 				pb.exit();
+				return 0;
+			}
 		}
 		else 
 		{

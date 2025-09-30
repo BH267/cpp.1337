@@ -28,7 +28,7 @@ std::string	getname(int name)
 				return (getname(name));
 		}
 		for (int i = 0; str[i]; i++)
-			if (!isalpha(str[i]))
+			if (!isalpha(str[i]) && str[i] != ' ')
 			{
 				std::cout << "		this is not a string ..try again " << std::endl;
 				return (getname(name));

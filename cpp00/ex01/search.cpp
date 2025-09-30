@@ -43,9 +43,11 @@ std::string	padding(std::string const &str, size_t s, int mode) {
 		return str;
 }
 
-void	putphonebook(Contact contact, std::string index)
+void	putphonebook(Contact contact, int index)
 {
-	std::cout << "│" << padding(index, 10, 0);
+	char c = '0' + index;
+	std::string i(&c);
+	std::cout << "│" << padding(i, 10, 0);
 	std::cout << "│" << padding(putenchar(contact.first_name), 10, 0) ;
 	std::cout << "│" << padding(putenchar(contact.last_name), 10, 0) ;
 	std::cout << "│" << padding(putenchar(contact.nickname), 10, 0) ;
@@ -108,9 +110,6 @@ void	putcontact(Contact contact)
 void	PhoneBook::search()
 {
 	std::string	cont;
-	std::string	stri;
-	std::stringstream ss;
-
 
 	if (phonebook[0].first_name[0])
 		putheader();
@@ -120,9 +119,7 @@ void	PhoneBook::search()
 	{
 		if (phonebook[i].first_name[0])
 		{
-			ss << i;
-			stri = ss.str();
-			putphonebook(phonebook[i], stri);
+			putphonebook(phonebook[i], i);
 			if (phonebook[i + 1].first_name[0] && i != 7)
 				std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
 			else
