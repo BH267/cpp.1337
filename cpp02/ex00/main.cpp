@@ -1,11 +1,8 @@
-// main.cpp for Exercise 00
 #include <iostream>
-#include "Fixed.hpp" // or "Fixed.h", depending on your file
+#include "Fixed.hpp"
 
 int main(void)
 {
-    std::cout << "=== TESTING EXERCISE 00 ===" << std::endl;
-
     // 1. Test Default Constructor
     std::cout << "\n--- 1. Creating 'a' with default constructor ---" << std::endl;
     Fixed a;
@@ -42,6 +39,7 @@ int main(void)
     std::cout << "\n--- 6b. Assigning 'a' to 'c' (c = a) ---" << std::endl;
     c = a;
     std::cout << "c.getRawBits() = " << c.getRawBits() << std::endl; // Should be 42
+
     std::cout << "\n=== ALL TESTS COMPLETED ===" << std::endl;
 
     return 0;
