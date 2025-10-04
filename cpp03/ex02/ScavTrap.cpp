@@ -6,6 +6,9 @@
 
 ScavTrap::ScavTrap()
 {
+	hit_p = 100;
+	energy_p = 50;
+	attack_damage = 20;
 	std::cout << "\033[38;2;59;59;59mScavTrap's default Constactor called\033[0m\n";
 }
 
@@ -33,5 +36,5 @@ void	ScavTrap::attack(const std::string& target)
 
 void	ScavTrap::guardGate(void)
 { 
-	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << name << " is now in Gate keeper mode" << std::endl;
 }
