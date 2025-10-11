@@ -9,9 +9,9 @@ Dog::Dog()
 	std::cout << "A Dog Created" << std::endl;
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other) : Animal(other)
 {
-	setType(other.getType());
+	//setType(other.getType());
 	brain = new Brain;
 	for (int i = 0; i < 100; i++)
 		brain->ideas[i] = other.getBrain()->ideas[i];

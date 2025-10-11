@@ -9,9 +9,8 @@ Cat::Cat()
 	std::cout << "A Cat Created" << std::endl;
 }
 
-Cat::Cat(const Cat& other)
+Cat::Cat(const Cat& other) : Animal(other)
 {
-	setType(other.getType());
 	brain = new Brain;
 	for (int i = 0; i < 100; i++)
 		brain->ideas[i] = other.getBrain()->ideas[i];
