@@ -20,7 +20,10 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
 	if (this != &other)
 		for (int i = 0; i < 4; i++)
+		{
+			delete materias[i];
 			materias[i] = other.materias[i];
+		}
 	return *this;
 }
 
@@ -38,6 +41,7 @@ void	MateriaSource::learnMateria(AMateria* m)
 			if (materias[i] == 0)
 			{
 				materias[i] = m->clone();
+				delete m;
 				break;
 			}
 }
