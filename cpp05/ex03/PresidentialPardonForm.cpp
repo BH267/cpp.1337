@@ -5,7 +5,7 @@
 #include <ostream>
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
-	: AForm("PresidentialPardonForm", 25, 5) , _target(target) {}
+	: AForm("presidential pardon form", 25, 5) , _target(target) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
 	: AForm(other), _target(other._target) {}

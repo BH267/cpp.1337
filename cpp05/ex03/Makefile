@@ -1,11 +1,11 @@
-SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SRC:.cpp=.o)
 
 RM = rm -f
 
-NAME = Forms
+NAME = Intern
 
 all : $(NAME)
 
@@ -20,7 +20,7 @@ clean :
 
 fclean : clean
 	$(RM) $(NAME)
-	$(RM) home_shrubbery
+	$(RM) backyard_shrubbery
 
 re : fclean all
 

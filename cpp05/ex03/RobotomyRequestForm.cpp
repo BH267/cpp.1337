@@ -5,7 +5,7 @@
 #include <iostream>
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: AForm("RobotomyRequestForm", 72, 45), _target(target) {}
+	: AForm("robotomy request form", 72, 45), _target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
 	: AForm(other), _target(other._target) {}
