@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 #include <cstdlib>
-#include <fstream>
+#include <ctime>
 #include <iostream>
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
@@ -20,14 +20,14 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-	if (executor.getGrade() > getGTE())
+	if (!getSign() || executor.getGrade() > getGTE())
 		throw GradeTooLowException();
 
 	std::cout << ">>> BRRRRRRT! <<<" << std::endl;
 	std::cout << ">>> KRRR-KRRR-KRRR! <<<" << std::endl;
 	std::cout << ">>> WHIIIIIRRRRRRRR—CLUNK! <<<" << std::endl;
 	std::cout << ">>> ... processing neural override ... <<<" << std::endl;
-	std::srand(time(NULL));
+	std::srand(std::time(NULL));
 	if (std::rand() % 2)
 		std::cout << _target << " has been robotomized successfully!" << std::endl;
 	else

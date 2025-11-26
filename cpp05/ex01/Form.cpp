@@ -60,6 +60,6 @@ std::ostream	&operator<<(std::ostream& os, const Form& form)
 	else
 		os << " isn't signed .";
 	os << " grad to sign it : " << form.getGTS() << ". ";
-	os << " grad to execut it : " << form.getGTS() << ". ";
+	os << " grad to execut it : " << form.getGTE() << ". ";
 	return os;
 }
