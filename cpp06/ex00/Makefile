@@ -1,4 +1,4 @@
-SRC = main.cpp ScalarConverter.cpp toChar.cpp  toDouble.cpp  toFloat.cpp  toInt.cpp
+SRC = main.cpp ScalarConverter.cpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SRC:.cpp=.o)

@@ -14,9 +14,9 @@ void	ScalarConverter::convert(const std::string&	name)
 {
 
 	// char
-	if (name.size() == 3 && name[0] == '\'' && name[name.size() - 1] == '\'')
+	if (name.size() == 1)
 	{
-		print(name[1]);
+		print(name[0]);
 		return ;
 	}
 
