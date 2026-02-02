@@ -38,6 +38,8 @@ void	identify(Base* p)
 		std::cout << "it's C" << std::endl;
 		return;
 	}
+	else 
+		std::cout << "UNEXPECTED" << std::endl;
 }
 
 void	identify(Base& p)
