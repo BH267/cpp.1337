@@ -1,69 +1,69 @@
+/* **************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/01 00:00:00 by student           #+#    #+#             */
+/*   Updated: 2023/01/01 00:00:00 by student          ###   ########.fr       */
+/*                                                                            */
+/* **************************************************************************** */
+
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <ostream>
-#include <vector>
-#include "Span.hpp"
+#include <stack>
+#include <list>
+#include "MutantStack.hpp"
 
 int main(void)
 {
-	std::srand(std::time(NULL));
-    std::cout << "=== Basic Subject Example ===" << std::endl;
-    try
+    std::cout << "=== MutantStack Test ===" << std::endl;
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(0);
+    
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    
+    ++it;
+    --it;
+    while (it != ite)
     {
-        Span sp = Span(5);
-        sp.addNumber(6);
-        sp.addNumber(3);
-        sp.addNumber(17);
-        sp.addNumber(9);
-        sp.addNumber(11);
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
+        std::cout << *it << std::endl;
+        ++it;
     }
-    catch (const std::exception & e)
-    {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
+    
+    std::stack<int> s(mstack);
+    std::cout << "Stack size copy: " << s.size() << std::endl;
 
-    std::cout << "\n=== Exception Tests ===" << std::endl;
-    try
+    std::cout << "\n=== std::list Comparison Test ===" << std::endl;
+    std::list<int> mstack2;
+    mstack2.push_back(5);
+    mstack2.push_back(17);
+    std::cout << mstack2.back() << std::endl;
+    mstack2.pop_back();
+    std::cout << mstack2.size() << std::endl;
+    mstack2.push_back(3);
+    mstack2.push_back(5);
+    mstack2.push_back(737);
+    mstack2.push_back(0);
+    
+    std::list<int>::iterator it2 = mstack2.begin();
+    std::list<int>::iterator ite2 = mstack2.end();
+    
+    ++it2;
+    --it2;
+    while (it2 != ite2)
     {
-        Span sp = Span(2);
-        sp.addNumber(1);
-        sp.addNumber(2);
-        sp.addNumber(3); // Should throw
-    }
-    catch (const std::exception & e)
-    {
-        std::cout << "AddNumber Exception: " << e.what() << std::endl;
-    }
-
-    try
-    {
-        Span sp = Span(1);
-        sp.addNumber(1);
-        std::cout << sp.shortestSpan() << std::endl; // Should throw
-    }
-    catch (const std::exception & e)
-    {
-        std::cout << "ShortestSpan Exception: " << e.what() << std::endl;
-    }
-
-    std::cout << "\n=== Large Scale Test (100,000 numbers) ===" << std::endl;
-    try
-    {
-        Span sp = Span(10000);
-        std::vector<int> numbers;
-        for (int i = 0; i < 10000; ++i)
-            numbers.push_back(std::rand() % 1000000);
-        sp.addNumbers(numbers.begin(), numbers.end()); 
-        
-        std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
-        std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
-    }
-    catch (const std::exception & e)
-    {
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cout << *it2 << std::endl;
+        ++it2;
     }
 
     return 0;
