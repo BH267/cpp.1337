@@ -4,10 +4,6 @@
 #include <deque>
 #include "easyfind.hpp"
 
-const char * NotFond::what() const throw() {
-	return "No occurrence is found :(";
-}
-
 int main(void)
 {
     std::vector<int> vec;

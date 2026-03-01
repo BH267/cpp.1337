@@ -1,29 +1,14 @@
 #include "Span.hpp"
 #include <algorithm>
 #include <climits>
-#include <iostream>
-#include <ostream>
 #include <stdexcept>
 #include <vector>
 
-Span::Span() : N(0)
-{
-	min = LONG_MAX;
-	premin = LONG_MAX;
-}
+Span::Span() : N(0) {}
 
-Span::Span(unsigned int n) : N(n)
-{
-	min = LONG_MAX;
-	premin = LONG_MAX;
-}
+Span::Span(unsigned int n) : N(n) {}
 
-Span::Span(const Span &other) : N(other.N)
-{
-	min = other.min;
-	premin = other.premin;
-	array = other.array;
-}
+Span::Span(const Span &other) : N(other.N), array(other.array) {}
 
 
 Span& Span::operator=(const Span &other)
@@ -31,8 +16,6 @@ Span& Span::operator=(const Span &other)
 	if (this != &other)
 	{
 		N = other.N;
-		min = other.min;
-		premin = other.premin;
 		array = other.array;
 	}
 	return *this;

@@ -3,13 +3,11 @@
 #include <vector>
 
 class Span {
-	unsigned int N;
 
-	long min;
-	long premin;
-	
+	unsigned int N;
 	std::vector<int> array;
 public:
+
 	Span();
 	Span(unsigned int);
 	Span(const Span &);
